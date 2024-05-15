@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-export default function ({ user }) {
+export default function ({ taxNumber }) {
   const { query } = useRouter();
 
   return (
@@ -14,8 +14,8 @@ export async function getServerSideProps({ params }) {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params.id}`
   );
-  const user = await response.json();
+  const taxNumber = await response.json();
   return {
-    props: { user },
+    props: { taxNumber },
   };
 }
