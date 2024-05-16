@@ -1,0 +1,57 @@
+.popup {
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+}
+
+.popupContainer {
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.popupBlock {
+  display: none;
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+}
+.buttonStay {
+  background-color: rgb(167, 227, 245);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+.buttonStay:hover {
+  cursor: pointer;
+}
+.buttonStay:active {
+  opacity: 0.8;
+}
+
+.buttonMoveOn {
+  background-color: rgb(181, 199, 204);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+}
+.buttonMoveOn:hover {
+  cursor: pointer;
+}
+.buttonMoveOn:active {
+  opacity: 0.8;
+}

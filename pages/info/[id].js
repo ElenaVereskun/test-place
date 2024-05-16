@@ -1,19 +1,43 @@
-/* import { useRouter } from "next/router"; */
+import React from "react";
+import Card from "../components/Card";
+import styles from "../styles/[id].module.css";
 
-export default function () {
+export default function Id({ repo }) {
+  const data = repo.suggestions;
   return (
-    <div>
-      <h2>просто перейти сюда</h2>
+    <div className={styles.container}>
+      <ul>
+        {data.map((item) => (
+          <Card
+            key={item.data.kpp}
+            title={item.value}
+            adress={item.data.address.value}
+            name={item.data.address.value}
+            post={item.data.address.value}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
-/* export async function getServerSideProps({ params }) {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${params.id}`
-  );
-  const taxNumber = await response.json();
-  return {
-    props: { taxNumber },
+
+export const getServerSideProps = async () => {
+  var url =
+    "http://suggestions.dadata.ru/suggestions/api/4_1/rs/findById/party";
+  var token = "04d61ad173df85b960cc9e9ed8d948dbecf2d939";
+  var query = "7707083893";
+
+  var options = {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Token " + token,
+    },
+    body: JSON.stringify({ query: query }),
   };
-}
- */
+  const res = await fetch(url, options);
+  const repo = await res.json();
+  return { props: { repo } };
+};
