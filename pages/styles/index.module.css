@@ -34,3 +34,8 @@
   background: none;
   border: none;
 }
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

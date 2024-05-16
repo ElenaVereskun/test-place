@@ -1,16 +1,13 @@
-import { useRouter } from "next/router";
+/* import { useRouter } from "next/router"; */
 
-export default function ({ taxNumber }) {
-  const { query } = useRouter();
-
+export default function () {
   return (
     <div>
-      <h2>User id{query.id}</h2>
-      <div>{user.name}</div>
+      <h2>просто перейти сюда</h2>
     </div>
   );
 }
-export async function getServerSideProps({ params }) {
+/* export async function getServerSideProps({ params }) {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params.id}`
   );
@@ -19,3 +16,4 @@ export async function getServerSideProps({ params }) {
     props: { taxNumber },
   };
 }
+ */
