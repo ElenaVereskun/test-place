@@ -1,70 +1,14 @@
 import React from "react";
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-
-import search from "./images/search.svg";
-
-import styles from "./styles/index.module.css";
+import Search from "./components/Search";
 
 const Index = ({ data }) => {
-  const [innValue, setInnValue] = useState("");
-  const [isInn, setIsInn] = useState(true);
-
-  const handleChange = (event) => {
-    setInnValue(event.target.value);
-  };
-  function searchByInn() {
-    const dataInn = data.suggestions.filter(
-      (item) => item.data.inn === innValue
-    );
-    if (dataInn.every((item) => item === null)) {
-      setIsInn(false);
-    } else {
-      setIsInn(true);
-    }
-  }
-  console.log(data);
   return (
     <div>
-      <div className={styles.container}>
-        <form className={styles.search} onChange={handleChange}>
-          <input
-            className={styles.input}
-            value={innValue}
-            placeholder="Укажите ИНН"
-            type="number"
-          ></input>
-          <button onClick={searchByInn}>
-            {isInn ? (
-              <Link href={`/info/${innValue}`}>
-                <Image
-                  src={search}
-                  className={styles.inputImg}
-                  alt="поиск"
-                  width={40}
-                  height={40}
-                />
-              </Link>
-            ) : (
-              <Link href="/error">
-                <Image
-                  src={search}
-                  className={styles.inputImg}
-                  alt="поиск"
-                  width={40}
-                  height={40}
-                />
-              </Link>
-            )}
-          </button>
-        </form>
-      </div>
+      <Search data={data} />
     </div>
   );
 };
 export default Index;
-/* 7707083893 */
 
 export async function getStaticProps() {
   var url =

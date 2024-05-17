@@ -1,19 +1,20 @@
 import React from "react";
 import Card from "../components/Card";
+import Search from "../components/Search";
 import styles from "../styles/[id].module.css";
 
 export default function Id({ repo }) {
-  const data = repo.suggestions;
+  const dataBank = repo.suggestions;
+  console.log(dataBank);
   return (
     <div className={styles.container}>
+      <Search data={repo} />
       <ul>
-        {data.map((item) => (
+        {dataBank.map((item) => (
           <Card
             key={item.data.kpp}
             title={item.value}
             adress={item.data.address.value}
-            name={item.data.address.value}
-            post={item.data.address.value}
           />
         ))}
       </ul>
